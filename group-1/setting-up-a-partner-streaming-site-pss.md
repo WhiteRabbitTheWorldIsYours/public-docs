@@ -32,10 +32,11 @@ import { WhiteRabbitClient } from '@whiterabbitjs/client';
 
 You can download the WR payment module file to your site's assets.
 
-Get latest package tarball\
-\
-`curl https://registry.npmjs.org/@whiterabbitjs/client/ | jq '.versions[."dist-tags".latest].dist.tarball' | xargs curl -O`\
-``
+Get latest package tarball
+
+```
+curl https://registry.npmjs.org/@whiterabbitjs/client/ | jq '.versions[."dist-tags".latest].dist.tarball' | xargs curl -O
+```
 
 Extract the `package/dist/index.min.mjs` file from the package and add to your assets by meaninful name (e.g. `whiterabbit-client.min.mjs`. If you don't use Javascript modules, there are other bundles in the package as well.
 
