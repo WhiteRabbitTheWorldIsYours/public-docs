@@ -79,6 +79,30 @@ if (result.status) {
 
 White Rabbit doesn't impose on you any restrictions when to ask for the payment and what to do after the payment is processed. You have full freedom.
 
-## (Optional) Getting payment details
+## Getting payment details
 
 Once the payment happened, you may want to store the `paymentId` on your side for reference.
+
+At any point you can use [#get-payment](../api-reference/payment-api.md#get-payment "mention") API to get information about the payment.
+
+E.g.
+
+```
+const payments = await client.getPayment("0x....")
+```
+
+## Getting all the payments
+
+To get all the payments your users made via your site, use [#get-payments](../api-reference/payment-api.md#get-payments "mention") API with the filter by `pssAddr`. Use your wallet address here (the one you used in `requestPayment` function (see [#request-the-payment-from-user](setting-up-a-partner-streaming-site-pss.md#request-the-payment-from-user "mention")).
+
+E.g. if your account address is `0x0Cc569107A7BDCf9170a49d6E0B71945ae34C7F0` then the call will be the following:
+
+```
+const payments = await client.getPayments({ pssAddr: "0x0Cc569107A7BDCf9170a49d6E0B71945ae34C7F0" });
+```
+
+Optionally you can mix in any other possible filtering options (see filter definition in [#get-payments](../api-reference/payment-api.md#get-payments "mention")). For example to get all the payments which was distributed already:
+
+```
+const payments = await client.getPayments({ status: COLLECTED, pssAddr: "0x0Cc569107A7BDCf9170a49d6E0B71945ae34C7F0" });
+```
