@@ -22,15 +22,15 @@ Request a payment by movie's imdb ID. Example: `tt8367814`. Returns a Promise wh
 
 Arguments:
 
-* `imdbId` - imdb ID for the movie.
-* `pssAddress` - (Optional) A public address on XDAI Chain you want to receive your PSS share to. Every payment collected via your streaming site will be split between rightsholder, WhiteRabbit and you. This is your way to specify the address you want to receive your parts of the split to.
-* `medium` - (Optional) One of the possible mediums. Defaults to "P2P". Don't change it unless you understand what you are doing.
+* `imdbId` — `string`. IMDB ID for the movie.
+* `pssAddress` — `string`. (Optional) A public address on XDAI Chain you want to receive your PSS share to. Every payment collected via your streaming site will be split between rightsholder, WhiteRabbit and you. This is your way to specify the address you want to receive your parts of the split to.
+* `medium` — `string`. (Optional) One of the possible mediums. Defaults to "P2P". Don't change it unless you understand what you are doing.
 
 Response:
 
-* `movieId` — Number. Movie id as encoded by `utils.imdbToToken` function.
-* `paymentId` - String. Transaction hash. Use block explorer to see the transaction [https://blockscout.com/xdai/mainnet/](https://blockscout.com/xdai/mainnet/)
-* `status` - Boolean. Result of the payment. `true` means the payment was successful, `false` — the payment was either declined by user or failure happened
+* `movieId` — `number`. Movie id as encoded by `utils.imdbToToken` function.
+* `paymentId` — `string`. Transaction hash. Use block explorer to see the transaction [https://blockscout.com/xdai/mainnet/](https://blockscout.com/xdai/mainnet/)
+* `status` — `boolean`. Result of the payment. `true` means the payment was successful, `false` — the payment was either declined by user or failure happened
 
 Response example:
 
