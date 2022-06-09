@@ -4,7 +4,7 @@ Here is how you set up a White Rabbit payment solution on your streaming site
 
 ## Set up a cryptographic wallet.
 
-You will receive a cut from each of the payments on this account.&#x20;
+You will receive a cut from each of the payments on this account.
 
 1. Install the wallet. The easiest is to use a [MetaMask wallet](https://metamask.io/) as browser extension. Make sure you backed up your seed phrase in a secure place.
 2. Add Gnosis Chain network to the wallet. Go to [https://chainlist.org/chain/100](https://chainlist.org/chain/100), click Connect-Wallet and then click Add-to-Metamask. You should be able to switch your MetaMask to Gnosis Chain now. White Rabbit is using Gnosis Chain to transact.
@@ -77,10 +77,8 @@ if (result.status) {
 }
 ```
 
-White Rabbit doesn't impose on you any restrictions when to ask for the payment and what to do after the payment is processed. You have full freedom.&#x20;
+White Rabbit doesn't impose on you any restrictions when to ask for the payment and what to do after the payment is processed. You have full freedom.
 
 ## (Optional) Getting payment details
 
 Once the payment happened, you may want to store the `paymentId` on your side for reference.
-
-&#x20;
