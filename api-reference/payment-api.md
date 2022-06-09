@@ -24,8 +24,7 @@ Arguments:
 
 * `imdbId` - imdb ID for the movie.
 * `pssAddress` - (Optional) A public address on XDAI Chain you want to receive your PSS share to. Every payment collected via your streaming site will be split between rightsholder, WhiteRabbit and you. This is your way to specify the address you want to receive your parts of the split to.
-* `medium` - (Optional) One of the possible mediums. Defaults to "P2P
-* ". Don't change it unless you understand what you are doing.
+* `medium` - (Optional) One of the possible mediums. Defaults to "P2P". Don't change it unless you understand what you are doing.
 
 Response:
 
