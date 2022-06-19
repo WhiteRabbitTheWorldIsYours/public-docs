@@ -24,7 +24,7 @@ Arguments:
 
 * `imdbId` — `string`. IMDB ID for the movie.
 * `pssAddress` — `string`. (Optional) A public address on XDAI Chain you want to receive your PSS share to. Every payment collected via your streaming site will be split between rightsholder, WhiteRabbit and you. This is your way to specify the address you want to receive your parts of the split to.
-* `medium` — `string`. (Optional) One of the possible mediums. Defaults to "P2P". Don't change it unless you understand what you are doing.
+* `medium` — `string`. (Optional) One of the possible mediums. Defaults to "EST". Don't change it unless you understand what you are doing.
 
 Response:
 
@@ -59,7 +59,7 @@ Response is the JSON object with the following fields:
 * pssAddr — `string`. Account address of the PSS where the payment took place
 * pssName — `string`. PSS name as specified in RFR. May be empty if PSS haven't provided a name
 * regionCode — `string`. Region code of the viewer in [two-letter ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO\_3166-1\_alpha-2) format.
-* mediumCode — `string`. Medium name for the payment. For PSS it will likely be always `P2P`
+* mediumCode — `string`. Medium name for the payment. For PSS it will likely be always `EST`
 * movie
   * id — `number`. ID of the movie on themoviedb.org
   * imdbId — `string`. ID of the movie on imdb.com
