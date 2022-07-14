@@ -1,10 +1,18 @@
-# Setting up a Partner Streaming Site (PSS)
+---
+description: >-
+  Integrate your streaming website with White Rabbit and collect payments
+  officially
+---
 
-Here is how you set up a White Rabbit payment solution on your streaming site
+# Monetise your streaming site by becoming a White Rabbit Streaming Partner.
+
+You own a streaming site and would like to collect payments from your audience while staying in a legal zone? Here is how you integrate with White Rabbit payment solution and start collecting payments shared with films' rightsholders.
+
+
 
 ## Set up a cryptographic wallet.
 
-You will receive a cut from each of the payments on this account.
+You will receive a share from each of the payments on this account.
 
 1. Install the wallet. The easiest is to use a [MetaMask wallet](https://metamask.io/) as browser extension. Make sure you backed up your seed phrase in a secure place.
 2. Add Gnosis Chain network to the wallet. Go to [https://chainlist.org/chain/100](https://chainlist.org/chain/100), click Connect-Wallet and then click Add-to-Metamask. You should be able to switch your MetaMask to Gnosis Chain now. White Rabbit is using Gnosis Chain to transact.
