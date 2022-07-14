@@ -21,7 +21,7 @@ Fill out the necessary information and upgrade.
 You NEED to reach Level 3 to be able to distribute and collect payments for your films. All payments go directly from the customer to your wallet.
 
 Click the "Upgrade to Level 3" button on the dashboard.
-Fill out or import your MetaMask wallet address. Then, click upgrade. If you don't have a MetaMask, install it here and follow the instructions on the site.
+Fill out or import your MetaMask wallet address. Then, click upgrade. If you don't have a MetaMask, install it [here](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn) and follow the instructions on the site.
 
 Once your account is set up, you must register your films in the RFR to be able to distribute them through our network participants. Our network participants include partner streaming sites (PSS), decentralized applications (dApps), and social media influencers who are allowed to distribute the registered films. This way, a film registered in the RFR can potentially reach millions of people.
 
