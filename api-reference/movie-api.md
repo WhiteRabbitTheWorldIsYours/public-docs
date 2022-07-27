@@ -52,7 +52,7 @@ Points of interest here:
 
 `movie.metadata.title` — Film title in English
 
-### Get movie prices
+## Get movie prices
 
 Prices set by rightsholder for the film and are available via `movie.pricing` subgraph. Each of the prices optionally could be bound by time, region or medium.&#x20;
 
@@ -78,11 +78,11 @@ If the price has medium specified, the price is effective only for this medium. 
 | P2P    | 150  |
 | EST    | 200  |
 
-### Check if the movie is available
+## Check if the movie is available
 
 To answer the question “this film X is authorised for streaming in country Y today” you need to get “pricing” for film X (see [#get-movie-prices](movie-api.md#get-movie-prices "mention")), find the price for region Y and check if today date is between `fromWindow` and `toWindow` for the price found. If it is, then the film X is available in country Y at the price specified by resulting record. If you cannot find such a price, it means the film X is not available to be paid for via White Rabbit.
 
-### Check if the movie has a video file for streaming
+## Check if the movie has a video file for streaming
 
 CDN video data is available at `movie.assets` subgraph.
 
