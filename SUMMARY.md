@@ -10,4 +10,5 @@
 
 ## API Reference
 
+* [Movie API](api-reference/movie-api.md)
 * [Payment API](api-reference/payment-api.md)
