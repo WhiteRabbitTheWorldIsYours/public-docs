@@ -2,8 +2,8 @@
 
 You are a film producer or distributor and are willing to join the White Rabbit? Start here:
 
-{% content-ref url="guides/registering-in-RFR.md" %}
-[registering-in-RFR.md](guides/registering-in-RFR.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 
