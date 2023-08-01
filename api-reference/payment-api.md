@@ -9,27 +9,22 @@ Create a new client instance.
 Arguments:
 
 * `whiteRabbitConfig` — config object with attributes:
-  * `host` — (optional) host of whiterabbit wallet instance. Possible options:
-    * `https://wallet.whiterabbit.one`. (default). Production mode. Card deposits will require a real card. If `host` is not specified this mode will be used
-    * `https://staging-wallet.whiterabbit.one`. Test mode. Card deposits can be tested with a test card (see below).
-  * `campaign` — (optional) name of the campaign. Could be used to adapt look and feel of the payment popup
+  * `apiKey` — either production or test API key
 
 ## Request payment
 
-#### `client.requestPayment(imdbId, [pssAddress], [medium])`
+#### `client.requestPayment(imdbId)`
 
 Request a payment by movie's imdb ID. Example: `tt8367814`. Returns a Promise which resolves with the status of the payment.
 
 Arguments:
 
 * `imdbId` — `string`. IMDB ID for the movie.
-* `pssAddress` — `string`. (Optional) A public address on XDAI Chain you want to receive your PSS share to. Every payment collected via your streaming site will be split between rightsholder, WhiteRabbit and you. This is your way to specify the address you want to receive your parts of the split to.
-* `medium` — `string`. (Optional) One of the possible mediums. Defaults to "EST". Don't change it unless you understand what you are doing.
 
 Response:
 
 * `movieId` — `number`. Movie id as encoded by `utils.imdbToToken` function.
-* `paymentId` — `string`. Transaction hash. Use block explorer to see the transaction [https://blockscout.com/xdai/mainnet/](https://blockscout.com/xdai/mainnet/)
+* `paymentId` — `string`. Unique payment ID
 * `status` — `boolean`. Result of the payment. `true` means the payment was successful, `false` — the payment was either declined by user or failure happened
 
 Response example:
@@ -37,7 +32,7 @@ Response example:
 ```
 {
   movieId: "423557889"
-  paymentId: "0x3202b4ef03ef29d87d81357e4c50105206be0396c5e5c4624d498b8cb7e2a083"
+  paymentId: "pi_3NZd0rBsVefXup6H3EKNLvs8"
   status: true
 }
 ```
@@ -46,7 +41,7 @@ Response example:
 
 **`client.getPayment(paymentId)`**
 
-Returns all the information for a given `paymentId`.&#x20;
+Returns all the information for a given `paymentId`.
 
 Response is the JSON object with the following fields:
 
@@ -56,7 +51,7 @@ Response is the JSON object with the following fields:
   * rightsholder — `string`. Part of the payment distributed to the rightsholder (in USD)
   * whiterabbit — `string`. Part of the payment distributed to the WhiteRabbit as a fee (in USD)
   * pss — `string`. Part of the payment distributed to the PSS (in USD)
-* pssAddr — `string`. Account address of the PSS where the payment took place
+* pssHash — `string`. Account address of the PSS where the payment took place
 * pssName — `string`. PSS name as specified in RFR. May be empty if PSS haven't provided a name
 * regionCode — `string`. Region code of the viewer in [two-letter ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO\_3166-1\_alpha-2) format.
 * mediumCode — `string`. Medium name for the payment. For PSS it will likely be always `EST`
@@ -108,8 +103,7 @@ Returns all the payments matching the given filter.
 
 The only argument `filter` is the optional object with one or more of the following attributes:
 
-* pssAddr — `string`. Account address of the PSS who facilitated the payment
-* movieId — \`string\`. IMDB id of the movie converted to tokenId. See [#utils.imdbtotoken-imdbid](payment-api.md#utils.imdbtotoken-imdbid "mention") &#x20;
+* movieId — \`string\`. IMDB id of the movie converted to tokenId. See [#utils.imdbtotoken-imdbid](payment-api.md#utils.imdbtotoken-imdbid "mention")
 * region — \`number\`. Region code of the viewer in [three digit M49 region code](https://en.wikipedia.org/wiki/UN\_M49) format
 * status — `string`. Payment status (one on NEW, COLLECTED, RETURNED)
 * medium — `number`. Medium code in three digit format (to be specified)
@@ -154,15 +148,17 @@ Full query to POST to the API endpoint (authorisation is not required):
       pssName
 
       blockNumber
-      status
+      isRhUnclaimed
+      isPssUnclaimed
       txHash
       sender
       timestamp
+      receipt { ... }
     }
   }
 ```
 
-You can adjust the attributes you want. E.g.&#x20;
+You can adjust the attributes you want. E.g.
 
 ```
 {
