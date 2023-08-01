@@ -12,14 +12,6 @@ You own a streaming site and would like to collect payments from your audience w
 
 Contact White Rabbit to get you onboarded. You will get two API keys: one for testing and one for production use.
 
-## Set up a cryptographic wallet.
-
-You will receive a share from each of the payments on the crypto-wallet on the [Gnosis Chain network](https://www.gnosis.io/).
-
-1. Install the wallet. The easiest is to use a [MetaMask wallet](https://metamask.io/) as browser extension. Make sure you backed up your seed phrase in a secure place.
-2. Add Gnosis Chain network to the wallet. Go to [https://chainlist.org/chain/100](https://chainlist.org/chain/100), click Connect-Wallet and then click Add-to-Metamask. You should be able to switch your MetaMask to Gnosis Chain now. White Rabbit is using Gnosis Chain to transact.
-3. Take note of your account address in MetaMask (a string starting with 0x..). You will need it later
-
 ## Add the White Rabbit payment client to your site
 
 White Rabbit payment client is a small Javascript library with a simple API. Use it on all the pages you want to request payment on. Most likely it will be the page with a movie player.
@@ -97,3 +89,21 @@ E.g.
 ```
 const payments = await client.getPayment(paymentId)
 ```
+
+
+
+## Collecting revenue
+
+### Set up a cryptographic wallet.
+
+You will receive a share from each of the payments on the crypto-wallet on the [Gnosis Chain network](https://www.gnosis.io/).
+
+1. Install the wallet. The easiest is to use a [MetaMask wallet](https://metamask.io/) as browser extension. Make sure you backed up your seed phrase in a secure place.
+2. Add Gnosis Chain network to the wallet. Go to [https://chainlist.org/chain/100](https://chainlist.org/chain/100), click Connect-Wallet and then click Add-to-Metamask. You should be able to switch your MetaMask to Gnosis Chain now. White Rabbit is using Gnosis Chain to transact.
+3. Take note of your account address in MetaMask (a string starting with 0x..). You will need it later
+
+### Register in Influencer Dashboard
+
+Sign up on https://share.whiterabbit.one. Then let us know you have an account (email to team@whiterabbit.one). We will connect it to your API key so you will see the incoming payments.
+
+Then you will be able to collect your part of the revenue. You will have to add your Gnosis Chain account address (see above) the first time you try to collect the revenue.
