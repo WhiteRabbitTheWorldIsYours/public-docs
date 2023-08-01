@@ -6,6 +6,7 @@
 
 * [Monetise your streaming site by becoming a White Rabbit Streaming Partner.](group-1/setting-up-a-partner-streaming-site-pss.md)
 * [Testing payments](guides/testing-payments.md)
+* [Start getting payments for your films](guides/start-getting-payments-for-your-films.md)
 
 ## API Reference
 

@@ -2,8 +2,8 @@
 
 You are a film producer or distributor and are willing to join the White Rabbit? Start here:
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="guides/start-getting-payments-for-your-films.md" %}
+[start-getting-payments-for-your-films.md](guides/start-getting-payments-for-your-films.md)
 {% endcontent-ref %}
 
 
