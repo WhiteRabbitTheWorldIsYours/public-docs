@@ -8,11 +8,13 @@ description: >-
 
 You own a streaming site and would like to collect payments from your audience while staying in a legal zone? Here is how you integrate with White Rabbit payment solution and start collecting payments shared with films' rightsholders.
 
+## Get your API key from White Rabbit team
 
+Contact White Rabbit to get you onboarded. You will get two API keys: one for testing and one for production use.
 
 ## Set up a cryptographic wallet.
 
-You will receive a share from each of the payments on this account.
+You will receive a share from each of the payments on the crypto-wallet on the [Gnosis Chain network](https://www.gnosis.io/).
 
 1. Install the wallet. The easiest is to use a [MetaMask wallet](https://metamask.io/) as browser extension. Make sure you backed up your seed phrase in a secure place.
 2. Add Gnosis Chain network to the wallet. Go to [https://chainlist.org/chain/100](https://chainlist.org/chain/100), click Connect-Wallet and then click Add-to-Metamask. You should be able to switch your MetaMask to Gnosis Chain now. White Rabbit is using Gnosis Chain to transact.
@@ -54,13 +56,7 @@ Import the module in your code, so you can request the payment like this:
 import { WhiteRabbitClient } from './whiterabbit-client.min.mjs';
 ```
 
-{% hint style="info" %}
-Instead of downloading the file you can use unpkg CDN (or similar) to load the file for you like this:
 
-```
-import { WhiteRabbitClient } from 'https://unpkg.com/@whiterabbitjs/client@2.40.1/dist/index.min.mjs';
-```
-{% endhint %}
 
 ## Request the payment from user
 
@@ -70,16 +66,19 @@ When you want to ask the user to pay for the movie, just call the `paymentReques
 // change this import if you don't use NPM (see above)
 import { WhiteRabbitClient } from '@whiterabbitjs/client';
 
-const client = new WhiteRabbitClient();
+const client = new WhiteRabbitClient({
+    apiKey: '<your White Rabbit API key>'
+});
 
-const pssAccountAddress = "0x..."; // use your account address here
-const movieId = 'tt8367814'; // IMDB ID of the movie you want to request payment for
+const pssAccountAddress = "0x..."; // use your account address hereconst movieId = 'tt8367814'; // IMDB ID of the movie you want to request payment for
 
-const result = await client.requestPayment(movieId, pssAccountAddress);
+const result = await client.requestPayment(movieId);
 
 if (result.status) {
     console.log(`Payment succeed. Payment ID: ${result.paymentId}`);
-    // payment is successful. You can start the video playback or do something else
+    // payment is successful.
+    // You can start the video playback or do something else
+    // You can link paymentId to your user's account, so the purchase is remembered.
 } else {
     console.log("Payment has been either declined or failed");
 }
@@ -96,21 +95,5 @@ At any point you can use [#get-payment](../api-reference/payment-api.md#get-paym
 E.g.
 
 ```
-const payments = await client.getPayment("0x....")
-```
-
-## Getting all the payments
-
-To get all the payments your users made via your site, use [#get-payments](../api-reference/payment-api.md#get-payments "mention") API with the filter by `pssAddr`. Use your wallet address here (the one you used in `requestPayment` function (see [#request-the-payment-from-user](setting-up-a-partner-streaming-site-pss.md#request-the-payment-from-user "mention")).
-
-E.g. if your account address is `0x0Cc569107A7BDCf9170a49d6E0B71945ae34C7F0` then the call will be the following:
-
-```
-const payments = await client.getPayments({ pssAddr: "0x0Cc569107A7BDCf9170a49d6E0B71945ae34C7F0" });
-```
-
-Optionally you can mix in any other possible filtering options (see filter definition in [#get-payments](../api-reference/payment-api.md#get-payments "mention")). For example to get all the payments which was distributed already:
-
-```
-const payments = await client.getPayments({ status: COLLECTED, pssAddr: "0x0Cc569107A7BDCf9170a49d6E0B71945ae34C7F0" });
+const payments = await client.getPayment(paymentId)
 ```
